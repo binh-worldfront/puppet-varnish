@@ -16,7 +16,7 @@ class varnish::config {
         Varnish_param {
           ensure  => present,
           require => File['/etc/systemd/system/varnish.service'],
-          notify  => Exec['systemctl-daemon-reload'],
+          notify  => Exec['systemctl daemon-reload'],
         }
 
         varnish_param {
