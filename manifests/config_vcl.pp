@@ -6,9 +6,9 @@ class varnish::config_vcl {
     mode    => '0644',
     content => $::varnish::vcl_content,
   }
-  ~>
-  exec { 'varnish_reload_vcl':
-    command     => 'service varnish reload',
+
+  ~> exec { 'varnish_reload_vcl':
+    command     => '/usr/bin/systemctl reload varnish',
     path        => $::path,
     refreshonly =>  true,
   }
